@@ -18,11 +18,11 @@ jobs:
 
           docker version
 
-          docker build -t backend-ci-cd:latest ./
+          docker build --build-arg environment=dev -t backend-ci-cd:latest ./
 
           docker run backend-ci-cd:latest ./vendor/bin/pest
 
-         # docker build -t backend-ci-cd:latest ./
+          docker build -t backend-ci-cd:latest ./
 
          # docker push 064672988105.dkr.ecr.us-east-1.amazonaws.com/workshop-yampi-1:latest
 
