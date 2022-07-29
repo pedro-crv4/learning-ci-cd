@@ -4,7 +4,9 @@ class Request
 {
     public function get($endpoint)
     {
-        $result = 'Some info.';
+        $result = [
+            'message' => 'It will be ok',
+        ];
 
         return $result;
     }
