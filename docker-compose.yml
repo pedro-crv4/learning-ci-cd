@@ -1,0 +1,11 @@
+services:
+  backend:
+    build:
+      context: ./
+    working_dir: /
+    volumes:
+      - ./
+#      - vendorPhp:/app/vendor
+    # environment:
+    ports:
+      - "9000:80"

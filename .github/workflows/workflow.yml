@@ -11,10 +11,31 @@ jobs:
       # @link https://github.com/actions/checkout
       - name: Checkout do código
         uses: actions/checkout@v3
+      
+      - uses: docker-practice/actions-setup-docker@master
+      - run: |
+          set -x
 
-      - name: Install dependencies
-        uses: php-actions/composer@v6
+          docker version
 
-      - name: Teste da aplicação
-        run: ./vendor/bin/pest
+          docker build -t backend-ci-cd:latest ./
 
+          docker run backend-ci-cd:latest ./vendor/bin/pest
+
+         # docker build -t backend-ci-cd:latest ./
+
+         # docker push 064672988105.dkr.ecr.us-east-1.amazonaws.com/workshop-yampi-1:latest
+
+      #- name: Install dependencies
+        #uses: php-actions/composer@v6
+
+      #- name: Teste da aplicação
+        #run: ./vendor/bin/pest
+
+# docker build dev
+
+#docker run dev
+
+#docker build prod
+
+#docker push prod
