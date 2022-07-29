@@ -1,0 +1,20 @@
+name: Backend CI
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      # @link https://github.com/actions/checkout
+      - name: Checkout do código
+        uses: actions/checkout@v3
+
+      - name: Install dependencies
+        uses: php-actions/composer@v6
+
+      - name: Teste da aplicação
+        run: ./vendor/bin/pest
+
